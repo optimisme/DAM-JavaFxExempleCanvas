@@ -38,15 +38,20 @@ public class Controller0 implements Initializable {
 
         // Initialize canvas responsive size
         UtilsViews.stage.heightProperty().addListener((observable, oldValue, newvalue) -> {
-            double size = UtilsViews.stage.getHeight() - hbox.getHeight();
-            canvas.setHeight(size);
+            updateCanvasSize();
         });
         UtilsViews.stage.widthProperty().addListener((observable, oldValue, newvalue) -> {
-            double size = UtilsViews.stage.getWidth();
-            canvas.setWidth(size);
+            updateCanvasSize();
         });
 
         // Start drawing loop
         Main.drawing.start(canvas);
+        updateCanvasSize();
+    }
+
+    public void updateCanvasSize () {
+        // Start Canvas size
+        canvas.setWidth(UtilsViews.parentContainer.getWidth());
+        canvas.setHeight(UtilsViews.parentContainer.getHeight() - hbox.getHeight());
     }
 }
