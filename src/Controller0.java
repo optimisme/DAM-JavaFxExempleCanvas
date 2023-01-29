@@ -20,10 +20,10 @@ public class Controller0 implements Initializable {
         "Transformacions", "Texts", "Text multilinia" };
 
     @FXML
-    private HBox hbox;
+    private Canvas canvas;
 
     @FXML
-    private Canvas canvas;
+    private HBox hbox;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
