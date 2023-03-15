@@ -55,11 +55,11 @@ public class Ctrl0 implements Initializable {
         canvas.setHeight(UtilsViews.parentContainer.getHeight() - hbox.getHeight());
     }
 
-    public void startDrawing () {
+    public void drawingStart () {
         drawing.start(canvas);
     }
 
-    public void stopDrawing () {
+    public void drawingStop () {
         drawing.start(canvas);
     }
 

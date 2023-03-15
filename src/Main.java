@@ -4,6 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
  
 public class Main extends Application {
 
@@ -36,10 +37,8 @@ public class Main extends Application {
         stage.setTitle("Exemples Canvas");
         stage.setMinWidth(windowWidth);
         stage.setMinHeight(windowHeight);
+        stage.addEventHandler(WindowEvent.WINDOW_SHOWN, event -> { ctrl0.drawingStart(); });
         stage.show();
-
-        // Start drawing loop
-        ctrl0.startDrawing();
 
         // Add icon only if not Mac
         if (!System.getProperty("os.name").contains("Mac")) {
@@ -51,6 +50,6 @@ public class Main extends Application {
     @Override
     public void stop() {
         // Aturar el bucle de dibuix
-        ctrl0.stopDrawing();
+        ctrl0.drawingStop();
     }
 }
