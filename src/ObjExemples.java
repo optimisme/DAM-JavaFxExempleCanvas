@@ -5,7 +5,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeLineCap;
 import javafx.scene.text.Font;
 
-public class ObjExemples implements DrawingObj {
+public class ObjExemples implements UtilsDrawingObj {
 
     // Animar
     public void run(Canvas cnv, double fps) {  }
@@ -16,16 +16,16 @@ public class ObjExemples implements DrawingObj {
         drawGrid(gc);
 
         switch (Main.selectedDrawing) {
-            case "Linies":              ObjDrawLinies.draw(gc); break;
-            case "Poligons":            ObjDrawPoligons.draw(gc); break;
-            case "Poligons emplenats":   ObjDrawPoligonsEmplenats.draw(gc); break;
-            case "Quadrats i cercles":  ObjDrawQuadratsCercles.draw(gc); break;
-            case "Imatges":             ObjDrawImatges.draw(gc); break;
-            case "Gradients lineals":   ObjDrawGradientsLineals.draw(gc); break;
-            case "Gradients radials":   ObjDrawGradientsRadials.draw(gc); break;
-            case "Transformacions":     ObjDrawTransformacions.draw(gc); break;
-            case "Texts":               ObjDrawTexts.draw(gc); break;
-            case "Text multilinia":     ObjDrawTextMultilinia.draw(gc); break;
+            case "Linies":              DrawObjDrawLinies.draw(gc); break;
+            case "Poligons":            DrawObjDrawPoligons.draw(gc); break;
+            case "Poligons emplenats":   DrawObjDrawPoligonsEmplenats.draw(gc); break;
+            case "Quadrats i cercles":  DrawObjDrawQuadratsCercles.draw(gc); break;
+            case "Imatges":             DrawObjDrawImatges.draw(gc); break;
+            case "Gradients lineals":   DrawObjDrawGradientsLineals.draw(gc); break;
+            case "Gradients radials":   DrawObjDrawGradientsRadials.draw(gc); break;
+            case "Transformacions":     DrawObjDrawTransformacions.draw(gc); break;
+            case "Texts":               DrawObjDrawTexts.draw(gc); break;
+            case "Text multilinia":     DrawObjDrawTextMultilinia.draw(gc); break;
         }
     }
 

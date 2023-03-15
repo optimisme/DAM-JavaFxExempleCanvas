@@ -1,25 +1,17 @@
 
-import java.util.ArrayList;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
  
 public class Main extends Application {
 
-    public static Drawing drawing = new Drawing();
-    public static ArrayList<DrawingObj> drawingList = new ArrayList<>();
+    public static Ctrl0 ctrl0;
 
     public static String selectedDrawing = "Linies";
-    public static ObjExemples dibuixExemples = new ObjExemples();
 
     public static void main(String[] args) {
- 
-        // Crear objectes
-        drawingList.add(dibuixExemples);
 
         // Iniciar app JavaFX   
         launch(args);
@@ -34,9 +26,10 @@ public class Main extends Application {
         UtilsViews.stage = stage;
         UtilsViews.parentContainer.setStyle("-fx-font: 14 arial;");
         UtilsViews.addView(getClass(), "View0", "./assets/view0.fxml");
+        ctrl0 = (Ctrl0) UtilsViews.getController("View0");
 
         Scene scene = new Scene(UtilsViews.parentContainer);
-        scene.addEventFilter(KeyEvent.ANY, keyEvent -> { keyEvent(keyEvent); });
+        scene.addEventFilter(KeyEvent.ANY, keyEvent -> { ctrl0.keyEvent(keyEvent); });
         
         stage.setScene(scene);
         stage.onCloseRequestProperty(); // Call close method when closing window
@@ -44,6 +37,9 @@ public class Main extends Application {
         stage.setMinWidth(windowWidth);
         stage.setMinHeight(windowHeight);
         stage.show();
+
+        // Start drawing loop
+        ctrl0.startDrawing();
 
         // Add icon only if not Mac
         if (!System.getProperty("os.name").contains("Mac")) {
@@ -55,20 +51,6 @@ public class Main extends Application {
     @Override
     public void stop() {
         // Aturar el bucle de dibuix
-        drawing.stop(); 
-    }
-
-    public void keyEvent (KeyEvent evt) {
-
-        // Quan apretem una tecla
-        if (evt.getEventType() == KeyEvent.KEY_PRESSED) {
-            if (evt.getCode() == KeyCode.UP) {
-            }
-        }
-
-        // Quan deixem anar la tecla
-        if (evt.getEventType() == KeyEvent.KEY_RELEASED) {
-
-        }
+        ctrl0.stopDrawing();
     }
 }
