@@ -27,7 +27,7 @@ public class Ctrl0 implements Initializable {
     @FXML
     private HBox hbox;
 
-    public static Ctrl0Canvas drawing = new Ctrl0Canvas();
+    public static Ctrl0Canvas ctrlCanvas = new Ctrl0Canvas();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -56,11 +56,11 @@ public class Ctrl0 implements Initializable {
     }
 
     public void drawingStart () {
-        drawing.start(canvas);
+        ctrlCanvas.start(canvas);
     }
 
     public void drawingStop () {
-        drawing.start(canvas);
+        ctrlCanvas.start(canvas);
     }
 
     public void keyEvent (KeyEvent evt) {
