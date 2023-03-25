@@ -41,10 +41,10 @@ public class Ctrl0 implements Initializable {
         });
 
         // Initialize canvas responsive size
-        UtilsViews.stage.heightProperty().addListener((observable, oldValue, newvalue) -> {
+        UtilsViews.parentContainer.heightProperty().addListener((observable, oldValue, newvalue) -> {
             updateCanvasSize();
         });
-        UtilsViews.stage.widthProperty().addListener((observable, oldValue, newvalue) -> {
+        UtilsViews.parentContainer.widthProperty().addListener((observable, oldValue, newvalue) -> {
             updateCanvasSize();
         });
     }

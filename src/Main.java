@@ -24,7 +24,6 @@ public class Main extends Application {
         final int windowWidth = 800;
         final int windowHeight = 600;
 
-        UtilsViews.stage = stage;
         UtilsViews.parentContainer.setStyle("-fx-font: 14 arial;");
         UtilsViews.addView(getClass(), "View0", "./assets/view0.fxml");
         ctrl0 = (Ctrl0) UtilsViews.getController("View0");
