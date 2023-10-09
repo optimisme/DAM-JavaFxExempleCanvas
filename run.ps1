@@ -1,4 +1,4 @@
-# ABC
+# run.ps1
 function Get-LatestVersion {
     param (
         [string]$moduleName
