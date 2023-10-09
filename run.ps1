@@ -37,12 +37,13 @@ $env:MAVEN_OPTS = "--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.
 # Check for the first argument and set it as the main class
 $mainClass = $args[0]
 
-Write-Host "Setting MAVEN_OPTS to: $env:MAVEN_OPTS"
-Write-Host "Main Class: $mainClass"
+Write-Output "Setting MAVEN_OPTS to: $MAVEN_OPTS"
+Write-Output "Main Class: $mainClass"
 
-# Execute mvn command with the profile and main class as arguments
-$execArg = "-PrunMain -Dexec.mainClass=$mainClass"
-Write-Host "Exec args: $execArg"
+# Split the execArg into an array
+$execArgs = @("-PrunMain", "-Dexec.mainClass=$mainClass")
+
+Write-Output "Exec args: $($execArgs -join ' ')"
 
 # Execute mvn command
-& mvn clean test-compile exec:java $execArg
+mvn clean test-compile exec:java $execArgs
