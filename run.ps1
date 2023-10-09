@@ -3,8 +3,10 @@
 # Change to the directory where the script is located
 Set-Location $PSScriptRoot
 
-# Search for JavaFX jars and generate the module path
-$FX_PATHS = Get-ChildItem -Path "$env:USERPROFILE\.m2\repository\org\openjfx" -Recurse -Filter "javafx-*19.0.2.1.jar" | ForEach-Object { $_.DirectoryName } | Sort-Object -Unique
+# Search for JavaFX jars and generate the module path without specifying a specific version
+$FX_PATHS = Get-ChildItem -Path "$env:USERPROFILE\.m2\repository\org\openjfx" -Recurse -Filter "javafx-*.jar" | 
+            Where-Object { $_.Name -match "javafx-(controls|fxml)-.*\.jar" } | 
+            ForEach-Object { $_.DirectoryName } | Sort-Object -Unique
 $FX_PATH = ($FX_PATHS -join ";")
 
 # Set MAVEN_OPTS environment variable
